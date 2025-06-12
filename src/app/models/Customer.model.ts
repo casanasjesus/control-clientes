@@ -1,7 +1,7 @@
 export interface Customer {
   id?: string;
-  name?: string;
-  lastname?: string;
+  nombre?: string;
+  apellido?: string;
   email?: string;
-  balance?: number;
+  saldo?: number;
 }
