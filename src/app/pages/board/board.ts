@@ -5,6 +5,7 @@ import { CustomersComponent } from '../../components/customers/customers';
   selector: 'app-board',
   imports: [CustomersComponent],
   templateUrl: './board.html',
-  styleUrl: './board.css',
 })
-export class BoardComponent {}
+export class BoardComponent {
+  readonly title: string = 'Control de Clientes';
+}
