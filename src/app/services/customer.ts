@@ -7,12 +7,16 @@ import {
   orderBy,
   query,
   collectionData,
+  docData,
 } from '@angular/fire/firestore';
 import {
   addDoc,
   CollectionReference,
+  deleteDoc,
+  doc,
   DocumentData,
   DocumentReference,
+  updateDoc,
 } from 'firebase/firestore';
 
 @Injectable({
@@ -43,5 +47,20 @@ export class CustomerService {
     customer: Customer
   ): Promise<DocumentReference<Customer, DocumentData>> {
     return addDoc(this.customersRef, customer);
+  }
+
+  getCustomer(id: string): Observable<Customer | null> {
+    const customerDocRef = doc(this.firestore, `clientes/${id}`);
+    return docData(customerDocRef, { idField: 'id' }) as Observable<Customer>;
+  }
+
+  editCustomer(customer: Customer): Promise<void> {
+    const customerDoc = doc(this.firestore, `clientes/${customer.id}`);
+    return updateDoc(customerDoc, { ...customer });
+  }
+
+  deleteCustomer(customer: Customer): Promise<void> {
+    const customerDoc = doc(this.firestore, `clientes/${customer.id}`);
+    return deleteDoc(customerDoc);
   }
 }

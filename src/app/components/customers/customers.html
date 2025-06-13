@@ -32,7 +32,7 @@
                 <td>{{customer.nombre}} {{customer.apellido}}</td>
                 <td>{{customer.saldo | currency: 'USD': '$'}}</td>
                 <td>
-                  <a [routerLink]="['/customer/edit/{{customer.id}}']" class="btn btn-secondary">
+                  <a [routerLink]="[`/customer/edit/${customer.id}`]" class="btn btn-secondary">
                     <i class="bi bi-pencil-square"></i>Editar</a>
                 </td>
               </tr>

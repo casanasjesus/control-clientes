@@ -1,1 +1,71 @@
-<p>editar-cliente works!</p>
+<header id="main-header" class="py-2 bg-info text-white">
+  <div class="container">
+    <h1><i class="bi bi-person"></i>Editar Cliente</h1>
+  </div>
+</header>
+<form #customerForm="ngForm" (ngSubmit)="saveCustomer(customerForm)">
+  <section id="actions" class="py-4 mb-4">
+    <div class="container d-flex justify-content-between">
+      <a [routerLink]="['/']" class="btn btn-primary">
+        <i class="bi bi-arrow-left"></i> Regresar al inicio
+      </a>
+      <button type="submit" class="btn btn-success">
+        <i class="bi bi-check"></i>Guardar Cliente
+      </button>
+      <a href="#" class="btn btn-danger" (click)="deleteCustomer()">
+        <i class="bi bi-trash"></i> Eliminar Cliente
+      </a>
+    </div>
+  </section>
+  <section id="details">
+    <div class="container">
+      <div class="card">
+        <div class="card-header">
+          <h4>Editar Cliente</h4>
+        </div>
+        <div class="card-body">
+          <div class="d-flex align-items-center mb-3">
+            <label for="nombre" class="form-label me-3" style="min-width: 100px;">Nombre</label>
+            <div class="col-sm-9">
+              <input type="text" id="nombre" name="nombre" class="form-control" minlength="2"
+                [(ngModel)]="customer.nombre" #nombre="ngModel" required />
+              @if(nombre.invalid && nombre.touched) {
+              <div class="text-danger">El nombre es requerido y debe tener al menos 2 caracteres</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="apellido" class="form-label me-3" style="min-width: 100px;">Apellido</label>
+            <div class="col-sm-9">
+              <input type="text" id="apellido" name="apellido" class="form-control" minlength="2"
+                [(ngModel)]="customer.apellido" #apellido="ngModel" required />
+              @if(apellido.invalid && apellido.touched) {
+              <div class="text-danger">El apellido es requerido y debe tener al menos 2 caracteres</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="email" class="form-label me-3" style="min-width: 100px;">Email</label>
+            <div class="col-sm-9">
+              <input type="text" id="email" name="email" class="form-control" minlength="2" [(ngModel)]="customer.email"
+                #email="ngModel" required />
+              @if(email.invalid && email.touched) {
+              <div class="text-danger">El email es requerido y debe ser un email válido</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="saldo" class="form-label me-3" style="min-width: 100px;">Saldo</label>
+            <div class="col-sm-9">
+              <input type="number" id="saldo" name="saldo" class="form-control" min="0.01" step="0.01"
+                [(ngModel)]="customer.saldo" #saldo="ngModel" required />
+              @if(saldo.invalid && saldo.touched) {
+              <div class="text-danger">El saldo es requerido y debe ser un valor válido</div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
