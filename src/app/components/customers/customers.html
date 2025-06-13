@@ -60,3 +60,60 @@
     </div>
   </div>
 </section>
+<div class="modal fade" id="agregarClienteModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title">Agregar Cliente</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #buttonClose></button>
+      </div>
+      <form #clienteForm="ngForm" (ngSubmit)="addCustomer(clienteForm)">
+        <div class="modal-body">
+          <div class="d-flex align-items-center mb-3">
+            <label for="nombre" class="form-label me-3" style="min-width: 100px;">Nombre</label>
+            <div class="col-sm-9">
+              <input type="text" id="nombre" name="nombre" class="form-control" minlength="2"
+                [(ngModel)]="customer.nombre" #nombre="ngModel" required />
+              @if(nombre.invalid && nombre.touched) {
+              <div class="text-danger">El nombre es requerido y debe tener al menos 2 caracteres</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="apellido" class="form-label me-3" style="min-width: 100px;">Apellido</label>
+            <div class="col-sm-9">
+              <input type="text" id="apellido" name="apellido" class="form-control" minlength="2"
+                [(ngModel)]="customer.apellido" #apellido="ngModel" required />
+              @if(apellido.invalid && apellido.touched) {
+              <div class="text-danger">El apellido es requerido y debe tener al menos 2 caracteres</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="email" class="form-label me-3" style="min-width: 100px;">Email</label>
+            <div class="col-sm-9">
+              <input type="text" id="email" name="email" class="form-control" minlength="2" [(ngModel)]="customer.email"
+                #email="ngModel" required />
+              @if(email.invalid && email.touched) {
+              <div class="text-danger">El email es requerido y debe ser un email válido</div>
+              }
+            </div>
+          </div>
+          <div class="d-flex align-items-center mb-3">
+            <label for="saldo" class="form-label me-3" style="min-width: 100px;">Saldo</label>
+            <div class="col-sm-9">
+              <input type="number" id="saldo" name="saldo" class="form-control" min="0.01" step="0.01"
+                [(ngModel)]="customer.saldo" #saldo="ngModel" required />
+              @if(saldo.invalid && saldo.touched) {
+              <div class="text-danger">El saldo es requerido y debe ser un valor válido</div>
+              }
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="clienteForm.invalid">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
