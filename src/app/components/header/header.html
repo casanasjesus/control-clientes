@@ -6,6 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
+      @if(isLoggedIn) {
       <ul class="navbar-nav me-auto">
         <li class="nav-item px-2">
           <a [routerLink]="['/']" class="nav-link">Inicio</a>
@@ -18,7 +19,13 @@
             Bienvenido
           </a>
         </li>
+        <li class="nav-item px-2">
+          <a (click)="logout()" class="nav-link" style="cursor: pointer;">
+            <i class="bi bi-person"></i>Cerrar Sesión
+          </a>
+        </li>
       </ul>
+      }
     </div>
   </div>
 </nav>
