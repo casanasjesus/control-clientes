@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './footer.html',
 })
-export class FooterComponent {}
+export class FooterComponent {
+  readonly name: string = 'Jesús Casañas';
+  readonly currentYear: number = new Date().getFullYear();
+}
