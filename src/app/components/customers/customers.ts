@@ -13,7 +13,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class CustomersComponent {
   customers: Customer[] | null = null;
 
-  customer: Customer = {
+  readonly customer: Customer = {
     nombre: '',
     apellido: '',
     email: '',

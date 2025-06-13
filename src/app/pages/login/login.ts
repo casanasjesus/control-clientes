@@ -10,8 +10,8 @@ import { User } from '../../models/User.model';
   templateUrl: './login.html',
 })
 export class LoginComponent {
-  email: string | null = null;
-  password: string | null = null;
+  readonly email: string | null = null;
+  readonly password: string | null = null;
   message: string | null = null;
 
   constructor(

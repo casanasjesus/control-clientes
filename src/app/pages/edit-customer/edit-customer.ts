@@ -17,7 +17,7 @@ export class EditCustomerComponent {
     saldo: undefined,
   };
 
-  id: string | null = null;
+  private id: string | null = null;
 
   constructor(
     private readonly customerService: CustomerService,

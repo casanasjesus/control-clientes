@@ -23,7 +23,7 @@ import {
   providedIn: 'root',
 })
 export class CustomerService {
-  customers: Observable<Customer[]>;
+  readonly customers: Observable<Customer[]>;
   private readonly customersRef: CollectionReference<Customer>;
 
   constructor(private readonly firestore: Firestore) {
